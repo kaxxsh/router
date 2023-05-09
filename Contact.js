@@ -14,8 +14,17 @@ const listenarr = [
   },
 ];
 
+Contact.get("/new", (req, res) => {
+  res.render("new");
+});
+
+Contact.post("/", (req, res) => {
+  listofusers.push({ name: request.body.firstname });
+  response.redirect(`/users/${listofusers.length}`);
+});
+
 Contact.get("/:id", (req, res) => {
-  res.send(req.service.name);
+  response.send(`${request.user.name} with id ${request.params.id}`);
 });
 
 Contact.param("id", (req, res, next, id) => {
